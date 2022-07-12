@@ -17,7 +17,7 @@ namespace NTTDATA.API.Controllers
 
         [HttpPost]
         [Route("Post")]
-        [ActionName("Post")]
+        [ActionName("RealizarMovimientos")]
         [ProducesResponseType(200, Type = typeof(MovimientoRealizaEntradaDTO))]
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -30,6 +30,19 @@ namespace NTTDATA.API.Controllers
 
         }
 
+        [HttpPost]
+        [Route("Post")]
+        [ActionName("ConsultarMovimientos")]
+        [ProducesResponseType(200, Type = typeof(MovimientoEntradaDTO))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult ConsultaMovimiento(MovimientoEntradaDTO Movimiento)
+        {
+            var data = _movimientosServices.ConsultaMovimiento(Movimiento);
+
+            return Ok(data);
+
+        }
 
 
     }

@@ -10,6 +10,8 @@ namespace NTTData.Application.Interfaces.IRepository
     public interface IMovimientoRepository
     {
         MovimientoRealizaResult CrearMovimiento(MovimientoRealizaEntrada realizamovi);
+        Task<List<MovimientoResult>> ConsultaMovimiento(MovimientoEntrada realizamovi);
+
 
     }
 }

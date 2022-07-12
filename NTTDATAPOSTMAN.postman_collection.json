@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "6bfb4d92-4173-4be2-a0f7-19c99020c978",
+		"name": "NTTDATAPOSTMAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegistrarUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clienteid\": 0,\r\n  \"personaid\": 0,\r\n  \"contrasena\": \"5678\",\r\n  \"estado\": true,\r\n  \"nombre\": \"Marianela Montalvo\",\r\n  \"genero\": \"F\",\r\n  \"edad\": 29,\r\n  \"identificacion\": \"0921541728\",\r\n  \"dirección\": \"Amazonas y  NNUU\",\r\n  \"teléfono\": \"097548965\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7258/Cliente/RegistrarUsuario/Post",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Cliente",
+						"RegistrarUsuario",
+						"Post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultarUsuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7258/Cliente/ConsultaUsuario/Get?identificacion=0921541728",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Cliente",
+						"ConsultaUsuario",
+						"Get"
+					],
+					"query": [
+						{
+							"key": "identificacion",
+							"value": "0921541728"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarUsuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clienteid\": 0,\r\n  \"personaid\": 0,\r\n  \"contrasena\": \"5555\",\r\n  \"estado\": true,\r\n  \"nombre\": \"Alejandro\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 25,\r\n  \"identificacion\": \"0921541728\",\r\n  \"dirección\": \"Kennedy Norte\",\r\n  \"teléfono\": \"0427498\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7258/Cliente/ActualizarUsuario/Put",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Cliente",
+						"ActualizarUsuario",
+						"Put"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarUsuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7258/Cliente/EliminarUsuario/Delete?identificacion=0921541728&estado=true",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Cliente",
+						"EliminarUsuario",
+						"Delete"
+					],
+					"query": [
+						{
+							"key": "identificacion",
+							"value": "0921541728"
+						},
+						{
+							"key": "estado",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistrarCuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identificacion\": \"0921541728\",\r\n  \"numerocuenta\": \"496825\",\r\n  \"tipocuenta\": \"Ahorro\",\r\n  \"saldoInicial\": 100,\r\n  \"estado\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7258/Cuenta/IngresarCuenta/PostIngreso",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Cuenta",
+						"IngresarCuenta",
+						"PostIngreso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaCuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7258/Cuenta/ConsultarCuenta/Get?identificacion=0921541728&nuemroCuenta=496825",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Cuenta",
+						"ConsultarCuenta",
+						"Get"
+					],
+					"query": [
+						{
+							"key": "identificacion",
+							"value": "0921541728"
+						},
+						{
+							"key": "nuemroCuenta",
+							"value": "496825"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarCuenta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identificacion\": \"0921541728\",\r\n  \"numerocuenta\": \"496825\",\r\n  \"tipocuenta\": \"Ahorro\",\r\n  \"saldoInicial\": 540,\r\n  \"estado\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7258/Cuenta/ActualizarCuenta/Put",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Cuenta",
+						"ActualizarCuenta",
+						"Put"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarCuenta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7258/Cuenta/EliminarCuenta/Delete?identificacion=0921541728&numeroCuenta=496825&estado=true",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Cuenta",
+						"EliminarCuenta",
+						"Delete"
+					],
+					"query": [
+						{
+							"key": "identificacion",
+							"value": "0921541728"
+						},
+						{
+							"key": "numeroCuenta",
+							"value": "496825"
+						},
+						{
+							"key": "estado",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearMovimiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identificaccion\": \"0921541728\",\r\n  \"tipoCuenta\": \"Corriente\",\r\n  \"movimientoValor\": 600,\r\n  \"tipoMovimiento\": \"D\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7258/Movimientos/RealizarMovimientos/Post",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Movimientos",
+						"RealizarMovimientos",
+						"Post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultarMovimiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fechaInicio\": \"2022-07-11T23:22:52.263Z\",\r\n  \"fechaFinal\": \"2022-07-11T23:22:52.263Z\",\r\n  \"identificacion\": \"0921541728\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7258/Movimientos/ConsultarMovimientos/Post",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7258",
+					"path": [
+						"Movimientos",
+						"ConsultarMovimientos",
+						"Post"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

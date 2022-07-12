@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "UhGe02otEc5MuwNQLW2jQCMsQ7YOC9pbWVizo64OpkqbpKaVqarx1hJw2S8UB1yem52BB6b9PjsiZfLH4QRS8g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hramirez\\source\\repos\\NTTDATA.API_SL\\NTTData.Application\\NTTData.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hramirez\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

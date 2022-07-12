@@ -16,7 +16,7 @@ namespace NTTData.Application.Services
         {
             _movimientoRepository = movimientoRepository;
         }
-
+                
         public MovimientoRealizaResultDTO CrearMovimiento(MovimientoRealizaEntradaDTO realizamovi)
         {
 
@@ -30,6 +30,36 @@ namespace NTTData.Application.Services
             } );
             return new MovimientoRealizaResultDTO() { Mensaje= result.mensaje,Modigo = result.codigo};
 
+        }
+
+        public async Task<List<MovimientoResultDTO>> ConsultaMovimiento(MovimientoEntradaDTO realizamovi)
+        {
+            List<MovimientoResultDTO> listMov = new List<MovimientoResultDTO>();
+
+            var result = await _movimientoRepository.ConsultaMovimiento(new Core.Entities.MovimientoEntrada()
+            {
+                Identificacion = realizamovi.Identificacion,
+                FechaInicio = realizamovi.FechaInicio,
+                FechaFinal=realizamovi.FechaFinal,
+
+            });
+
+            foreach (var item in result)
+            {
+                listMov.Add(new MovimientoResultDTO()
+                {
+                    Cliente = item.Cliente,
+                    estado = item.estado,
+                    fecha = item.fecha,
+                    Movimiento = item.Movimiento,
+                    NumeroCuenta = item.NumeroCuenta,
+                    SaldoDisponible = item.SaldoDisponible,
+                    saldoinicial= item.saldoinicial,
+                    Tipo=item.Tipo
+
+                });
+            }
+            return listMov;
         }
     }
 }

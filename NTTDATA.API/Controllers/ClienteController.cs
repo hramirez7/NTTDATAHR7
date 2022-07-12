@@ -19,7 +19,7 @@ namespace NTTDATA.API.Controllers
 
         [HttpGet]
         [Route("Get")]
-        [ActionName("Get")]
+        [ActionName("ConsultaUsuario")]
         [ProducesResponseType(200, Type = typeof(List<PersonaResultDTO>))]
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -33,7 +33,7 @@ namespace NTTDATA.API.Controllers
 
         [HttpPost]
         [Route("Post")]
-        [ActionName("Post")]
+        [ActionName("RegistrarUsuario")]
         [ProducesResponseType(200, Type = typeof(List<PersonaResultDTO>))]
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -43,6 +43,36 @@ namespace NTTDATA.API.Controllers
             var data = _clienteServices.InsertarPersona(Persona, ref mensaje);
 
             return Ok(new { mensaje = mensaje,resul = data });
+
+        }
+
+        [HttpPut]
+        [Route("Put")]
+        [ActionName("ActualizarUsuario")]
+        [ProducesResponseType(200, Type = typeof(List<PersonaResultDTO>))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult ActualizarUsuario(PersonaResultDTO Persona)
+        {
+            string mensaje = string.Empty;
+            var data = _clienteServices.ActualizarPersona(Persona, ref mensaje);
+
+            return Ok(new { mensaje = mensaje, resul = data });
+
+        }
+
+        [HttpDelete]
+        [Route("Delete")]
+        [ActionName("EliminarUsuario")]
+        [ProducesResponseType(200, Type = typeof(List<PersonaResultDTO>))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult EliminarUsuario(string? identificacion, bool? estado)
+        {
+            string mensaje = string.Empty;
+            var data = _clienteServices.EliminarPersona(identificacion, estado, ref mensaje);
+
+            return Ok(new { mensaje = mensaje, resul = data });
 
         }
 

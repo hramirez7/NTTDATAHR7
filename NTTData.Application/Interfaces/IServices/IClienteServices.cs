@@ -12,7 +12,7 @@ namespace NTTData.Application.Interfaces.IServices
         Task<List<PersonaResultDTO>> ObtenerPersona(string ? identificacion);
         bool InsertarPersona(PersonaResultDTO persona, ref string mensaje);
         bool ActualizarPersona(PersonaResultDTO persona, ref string mensaje);
-        bool EliminarPersona(PersonaResultDTO persona, ref string mensaje);
+        bool EliminarPersona(string? identificacion, bool? estado, ref string mensaje);
 
     }
 }

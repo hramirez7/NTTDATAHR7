@@ -40,6 +40,41 @@ namespace NTTData.Application.Services
             return bandera;
         }
 
+        public async Task<List<CuentaResultDTO>> ConsultarCuenta(string? identificacion, string? numeroCuenta)
+        {
+            List<CuentaResultDTO> listCLIE = new List<CuentaResultDTO>();
+
+            var result = await _cuentaRepository.ConsultarCuenta(identificacion, numeroCuenta);
+
+            foreach (var item in result)
+            {
+                listCLIE.Add(new CuentaResultDTO()
+                {
+                    Estado=item.Estado,
+                    Numerocuenta=item.Numerocuenta,
+                    SaldoInicial=item.SaldoInicial,
+                    Tipocuenta=item.Tipocuenta  
+                });
+            }
+
+            return listCLIE;
+        }
+
+        public bool EliminarCuenta(string? identificacion, string? numeroCuenta, bool? estado, ref string mensaje)
+        {
+            var bandera = false;
+
+            if (!string.IsNullOrEmpty(identificacion))
+            {
+                var result = _cuentaRepository.EliminarCuenta(identificacion, numeroCuenta, estado,ref mensaje);
+
+                bandera = result;
+
+            }
+            return bandera;
+
+        }
+
         public bool IngresarCuenta(CuentaEntradaDTO cuenta, ref string mensaje)
         {
             var bandera = false;

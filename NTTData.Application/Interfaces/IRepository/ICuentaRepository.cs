@@ -9,9 +9,11 @@ namespace NTTData.Application.Interfaces.IRepository
 {
     public interface ICuentaRepository
     {
+        Task<List<CuentaResult>> ConsultarCuenta(string? identificacion, string? numeroCuenta);
         bool ActualizarCuenta(CuentaEntrada cuenta, ref string mensaje);
-
         bool IngresarCuenta(CuentaEntrada cuenta, ref string mensaje);
+        bool EliminarCuenta(string? identificacion, string? numeroCuenta, bool? estado, ref string mensaje);
+
 
     }
 }

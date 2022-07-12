@@ -84,7 +84,7 @@ namespace NTTData.Infrastructure.DATA.Context
 
             modelBuilder.Entity<Movimiento>(entity =>
             {
-                entity.HasNoKey();
+              //  entity.HasNoKey();
 
                 entity.Property(e => e.Clienteid).HasColumnName("clienteid");
 

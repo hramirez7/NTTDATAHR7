@@ -11,6 +11,11 @@ namespace NTTData.Application.Interfaces.IServices
     {
         bool ActualizarCuenta(CuentaEntradaDTO cuenta, ref string mensaje);
         bool IngresarCuenta(CuentaEntradaDTO cuenta, ref string mensaje);
+        bool EliminarCuenta(string ? identificacion, string? numeroCuenta, bool ? estado, ref string mensaje);
+        Task<List<CuentaResultDTO>> ConsultarCuenta(string? identificacion, string? numeroCuenta);
+
+
+
 
     }
 }

@@ -20,12 +20,42 @@ namespace NTTData.Application.Services
 
         public bool ActualizarPersona(PersonaResultDTO persona, ref string mensaje)
         {
-            throw new NotImplementedException();
+            var bandera = false;
+
+            if (!string.IsNullOrEmpty(persona.Identificacion))
+            {
+                var result = _clienteRepository.ActualizarPersona(new PersonaResult()
+                {
+                    Nombre = persona.Nombre,
+                    Estado = persona.Estado,
+                    Contrasena = persona.Contrasena,
+                    Dirección = persona.Dirección,
+                    Edad = persona.Edad,
+                    Genero = persona.Genero,
+                    Identificacion = persona.Identificacion,
+                    Teléfono = persona.Teléfono
+
+                }, ref mensaje);
+                bandera = result;
+
+            }
+
+            return bandera;
+
         }
 
-        public bool EliminarPersona(PersonaResultDTO persona, ref string mensaje)
+        public bool EliminarPersona(string? identificacion, bool? estado, ref string mensaje)
         {
-            throw new NotImplementedException();
+            var bandera = false;
+
+            if (!string.IsNullOrEmpty(identificacion))
+            {
+                var result = _clienteRepository.EliminarPersona(identificacion, estado, ref mensaje);
+                bandera = result;
+
+            }
+
+            return bandera;
         }
 
         public  bool InsertarPersona(PersonaResultDTO persona, ref string mensaje)
@@ -38,13 +68,11 @@ namespace NTTData.Application.Services
                 {
                     Nombre = persona.Nombre,
                     Estado = persona.Estado,
-                    Clienteid = persona.Clienteid,
                     Contrasena = persona.Contrasena,
                     Dirección = persona.Dirección,
                     Edad = persona.Edad,
                     Genero = persona.Genero,
                     Identificacion = persona.Identificacion,
-                    Personaid = persona.Personaid,
                     Teléfono = persona.Teléfono
 
                 },ref mensaje);
@@ -59,13 +87,13 @@ namespace NTTData.Application.Services
 
         public async Task<List<PersonaResultDTO>> ObtenerPersona(string? identificacion)
         {
-            List<PersonaResultDTO> listCLIE = new List<PersonaResultDTO>();
+            List<PersonaResultDTO> listCuenta = new List<PersonaResultDTO>();
 
             var result = await _clienteRepository.ObtenerPersona(identificacion);
 
             foreach (var item in result)
             {
-                listCLIE.Add(new PersonaResultDTO() { 
+                listCuenta.Add(new PersonaResultDTO() { 
                 Clienteid = item.Clienteid,
                 Contrasena = item.Contrasena,
                 Identificacion = item.Identificacion,
@@ -80,7 +108,7 @@ namespace NTTData.Application.Services
                 });
             }
 
-            return listCLIE;
+            return listCuenta;
         }
 
 

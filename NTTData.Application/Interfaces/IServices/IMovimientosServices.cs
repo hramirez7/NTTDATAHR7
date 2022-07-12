@@ -11,5 +11,7 @@ namespace NTTData.Application.Interfaces.IServices
     public interface IMovimientosServices
     {
         MovimientoRealizaResultDTO CrearMovimiento(MovimientoRealizaEntradaDTO realizamovi);
+        Task<List<MovimientoResultDTO>> ConsultaMovimiento(MovimientoEntradaDTO realizamovi);
+
     }
 }

@@ -12,7 +12,7 @@ namespace NTTData.Application.Interfaces.IRepository
         Task<List<PersonaResult>> ObtenerPersona(string? identificacion);
         bool InsertarPersona(PersonaResult persona, ref string mensaje);
         bool ActualizarPersona(PersonaResult persona, ref string mensaje);
-        bool EliminarPersona(PersonaResult persona, ref string mensaje);
+        bool EliminarPersona(string? identificacion, bool? estado, ref string mensaje);
 
 
 

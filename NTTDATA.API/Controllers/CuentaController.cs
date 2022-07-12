@@ -16,9 +16,38 @@ namespace NTTDATA.API.Controllers
             _cuentaServices = cuentaServices;
         }
 
+        [HttpGet]
+        [Route("Get")]
+        [ActionName("ConsultarCuenta")]
+        [ProducesResponseType(200, Type = typeof(List<CuentaEntradaDTO>))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> ConsultarCuenta(string? identificacion, string ? nuemroCuenta)
+        {
+            var data = await _cuentaServices.ConsultarCuenta(identificacion, nuemroCuenta);
+
+            return Ok(data);
+
+        }
+
         [HttpPost]
-        [Route("Post")]
-        [ActionName("Post")]
+        [Route("PostIngreso")]
+        [ActionName("IngresarCuenta")]
+        [ProducesResponseType(200, Type = typeof(List<CuentaEntradaDTO>))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult PostInsertarCuenta(CuentaEntradaDTO cuenta)
+        {
+            string mensaje = string.Empty;
+            var data = _cuentaServices.IngresarCuenta(cuenta, ref mensaje);
+
+            return Ok(new { mensaje = mensaje, resul = data });
+
+        }
+
+        [HttpPut]
+        [Route("Put")]
+        [ActionName("ActualizarCuenta")]
         [ProducesResponseType(200, Type = typeof(List<CuentaEntradaDTO>))]
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -31,16 +60,16 @@ namespace NTTDATA.API.Controllers
 
         }
 
-        [HttpPost]
-        [Route("PostIngreso")]
-        [ActionName("PostIngreso")]
+        [HttpDelete]
+        [Route("Delete")]
+        [ActionName("EliminarCuenta")]
         [ProducesResponseType(200, Type = typeof(List<CuentaEntradaDTO>))]
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PostInsertarCuenta(CuentaEntradaDTO cuenta)
+        public IActionResult EliminarCuenta(string? identificacion, string? numeroCuenta, bool? estado)
         {
-            string mensaje = string.Empty;
-            var data = _cuentaServices.IngresarCuenta(cuenta, ref mensaje);
+           string mensaje = string.Empty;
+            var data = _cuentaServices.EliminarCuenta(identificacion, numeroCuenta, estado, ref mensaje);
 
             return Ok(new { mensaje = mensaje, resul = data });
 

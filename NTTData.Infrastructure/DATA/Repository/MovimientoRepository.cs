@@ -21,6 +21,49 @@ namespace NTTData.Infrastructure.DATA.Repository
             _context = context;
         }
 
+        public async Task<List<MovimientoResult>> ConsultaMovimiento(MovimientoEntrada realizamovi)
+        {
+            List<MovimientoResult> ListSal = new List<MovimientoResult>();
+
+            DateTime FechaI = Convert.ToDateTime(realizamovi.FechaInicio);
+            DateTime FechaF = Convert.ToDateTime(realizamovi.FechaFinal);
+            string FechaInicio = FechaI.ToString("yyyy-MM-dd");
+            string FechaFin = FechaF.ToString("yyyy-MM-dd");
+
+
+            string sql = $"EXECUTE dbo.Sp_Consulta_Movimiento " +
+                                          "@fechaI," +
+                                          "@fechaf," +
+                                          "@identificacion";
+
+            var lst = _context.movimientoConsulta.FromSqlRaw(sql, new List<SqlParameter>
+            {
+                new SqlParameter { ParameterName = "@fechaI", SqlDbType = SqlDbType.NVarChar, Value = FechaInicio },
+                new SqlParameter { ParameterName = "@fechaf", SqlDbType = SqlDbType.NVarChar, Value =FechaFin  },
+                new SqlParameter { ParameterName = "@identificacion", SqlDbType = SqlDbType.NVarChar, Value =realizamovi.Identificacion},
+
+            }.ToArray()).ToList();
+
+            foreach (var item in lst)
+            {
+                ListSal.Add(new MovimientoResult()
+                {
+                    Cliente = item.Cliente,
+                    estado = item.estado,
+                    fecha = item.fecha,
+                    Movimiento = item.Movimiento,
+                    NumeroCuenta = item.NumeroCuenta,
+                    SaldoDisponible = item.SaldoDisponible,
+                    saldoinicial = item.saldoinicial,
+                    Tipo=item.Tipo
+                    
+
+                });
+            }
+
+            return ListSal;
+        }
+
         public MovimientoRealizaResult CrearMovimiento(MovimientoRealizaEntrada realizamovi)
         {
             MovimientoRealizaResult salida = new MovimientoRealizaResult();

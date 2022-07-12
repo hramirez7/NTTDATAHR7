@@ -1,0 +1,12 @@
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\bin\Debug\net6.0\NTTData.Core.deps.json
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\bin\Debug\net6.0\NTTData.Core.dll
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\bin\Debug\net6.0\NTTData.Core.pdb
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\NTTData.Core.csproj.AssemblyReference.cache
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\NTTData.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\NTTData.Core.AssemblyInfoInputs.cache
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\NTTData.Core.AssemblyInfo.cs
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\NTTData.Core.csproj.CoreCompileInputs.cache
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\NTTData.Core.dll
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\refint\NTTData.Core.dll
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\NTTData.Core.pdb
+C:\Users\hramirez\source\repos\NTTDATA.API_SL\NTTData.Core\obj\Debug\net6.0\ref\NTTData.Core.dll
